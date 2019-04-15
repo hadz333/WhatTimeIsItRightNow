@@ -23,6 +23,9 @@ function Main() {
 		isPM = true;
 		hr -= 12;
 	}
+	if (hr == 0) {
+		hr = 12;
+	}
 	if (hr < 10) {
 		hr = '0' + hr;
 	}
