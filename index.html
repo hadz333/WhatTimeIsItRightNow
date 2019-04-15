@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>What time is it right now?</title>
+</head>
+<body>
+<center>
+<h1>What time is it right now?</h1>
+
+<div id="time"></div>
+</center>
+<script>
+var update_loop = setInterval(Main, 1000);
+
+function Main() {
+	var d = new Date();
+	var hr = d.getHours();
+	if (hr < 10) {
+		hr = '0' + hr;
+	}
+	var min = d.getMinutes();
+	if (min < 10) {
+		min = '0' + min;
+	}
+	var secs = d.getSeconds();
+	if (secs < 10) {
+		secs = '0' + secs;
+	}
+	var html = '<h2>' + hr + ":" + min + ":" + secs + '</h2>';
+	console.log(html);
+
+	var timeSection = document.getElementById('time');
+	timeSection.innerHTML = html;
+}
+
+</script>
+</body>
+</html>
