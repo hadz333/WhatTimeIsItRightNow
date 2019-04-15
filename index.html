@@ -5,7 +5,7 @@
 </head>
 <body>
 <center>
-<h1>What time is it right now?</h1>
+<img src="images/whattimeisitirghtnow.png" alt="logo">
 
 <div id="time"></div>
 </center>
@@ -14,7 +14,15 @@ var update_loop = setInterval(Main, 1000);
 
 function Main() {
 	var d = new Date();
+	var isPM = false;
 	var hr = d.getHours();
+	if (hr == 12) {
+		isPM = true;
+	}
+	if (hr > 12) {
+		isPM = true;
+		hr -= 12;
+	}
 	if (hr < 10) {
 		hr = '0' + hr;
 	}
@@ -26,7 +34,13 @@ function Main() {
 	if (secs < 10) {
 		secs = '0' + secs;
 	}
-	var html = '<h2>' + hr + ":" + min + ":" + secs + '</h2>';
+	var html = '<h2>' + hr + ":" + min + ":" + secs;
+	if (isPM) {
+		html += ' PM';
+	} else {
+		html += ' AM';
+	}
+	html += '</h2>';
 	console.log(html);
 
 	var timeSection = document.getElementById('time');
@@ -34,5 +48,11 @@ function Main() {
 }
 
 </script>
+
+<style>
+body img {
+	width: 40%;
+}
+</style>
 </body>
 </html>
